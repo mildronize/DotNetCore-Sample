@@ -12,9 +12,9 @@ namespace Mild.EF.RazorPage.Example.ContosoUniversity.Pages.Students
 {
     public class DeleteModel : PageModel
     {
-        private readonly Mild.EF.RazorPage.Example.ContosoUniversity.Data.SchoolContext _context;
+        private readonly SchoolContext _context;
 
-        public DeleteModel(Mild.EF.RazorPage.Example.ContosoUniversity.Data.SchoolContext context)
+        public DeleteModel(SchoolContext context)
         {
             _context = context;
         }

@@ -12,9 +12,9 @@ namespace Mild.EF.RazorPage.Example.ContosoUniversity.Pages.Students
 {
     public class DetailsModel : PageModel
     {
-        private readonly Mild.EF.RazorPage.Example.ContosoUniversity.Data.SchoolContext _context;
+        private readonly SchoolContext _context;
 
-        public DetailsModel(Mild.EF.RazorPage.Example.ContosoUniversity.Data.SchoolContext context)
+        public DetailsModel(SchoolContext context)
         {
             _context = context;
         }
