@@ -2,17 +2,15 @@
 
 Following in Doc: [docs.microsoft.com - Razor Pages with Entity Framework Core in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-5.0&tabs=visual-studio-code)
 
+All explanation are inside inline comment
 
 # Features
-- MVC
-- Cookie Authentication (SSR) 
-- Razor Page controlled by the Controller
-- Session Management 
-
-# Limitation
-- No connect to any DB
+- Razor Page
+- SQLite
 
 <!-- more -->
+
+![](screenshot.png)
 
 # Run
 
