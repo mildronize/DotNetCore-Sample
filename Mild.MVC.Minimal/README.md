@@ -1,4 +1,4 @@
-# Mild.MinimalMVC
+# Mild.MVC.Minimal
 
 Just a basic MVC 
 
@@ -17,7 +17,7 @@ Open browser: https://localhost:5001/
 This template start with:
 
 ```sh
-dotnet new web --name Mild.MinimalMVC
+dotnet new web --name Mild.MVC.Minimal
 ```
 
 ```

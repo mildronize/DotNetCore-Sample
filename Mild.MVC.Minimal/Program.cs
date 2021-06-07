@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Mild.MinimalMVC
+namespace Mild.MVC.Minimal
 {
     public class Program
     {

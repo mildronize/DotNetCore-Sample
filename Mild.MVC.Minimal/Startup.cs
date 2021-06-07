@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Mild.MinimalMVC
+namespace Mild.MVC.Minimal
 {
     public class Startup
     {

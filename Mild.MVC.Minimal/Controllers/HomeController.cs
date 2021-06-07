@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mild.MinimalMVC.Controllers
+namespace Mild.MVC.Minimal.Controllers
 {
     public class HomeController : Controller
     {
