@@ -12,6 +12,12 @@ All explanation are inside inline comment
 
 ![](screenshot.png)
 
+# Code Checkpoint in tutorial 
+
+Following in Doc: [docs.microsoft.com - Razor Pages with Entity Framework Core in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-5.0&tabs=visual-studio-code)
+
+1. [Tutorial 1 of 8 - Get Started](https://github.com/SukrepCode/DotNetCore.Templates/tree/b007ab26699f268b468e7a9cafd662cfcf626819/Mild.EF.RazorPage.Example.ContosoUniversity)
+
 # Run
 
 ```sh
