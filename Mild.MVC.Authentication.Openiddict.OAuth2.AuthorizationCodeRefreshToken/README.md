@@ -27,6 +27,10 @@ dotnet run
 Open browser: https://localhost:5001/
 
 
+# Postman Test Config
+
+![](screenshot.png)
+
 # Ref
 Setting up an Authorization Server with OpenIddict - Part 4 - 6
 
