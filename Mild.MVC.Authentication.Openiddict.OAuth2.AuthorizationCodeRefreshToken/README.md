@@ -31,6 +31,12 @@ Open browser: https://localhost:5001/
 
 ![](screenshot.png)
 
+# Quick manual setup 
+```
+dotnet new webapp -o AuthorizeServer
+See Diff: https://github.com/codesanook/codesanook-examples/commit/daaa4cdfe48b28d87c8b9acde6d2485be69a53de
+```
+
 # Ref
 Setting up an Authorization Server with OpenIddict - Part 4 - 6
 
