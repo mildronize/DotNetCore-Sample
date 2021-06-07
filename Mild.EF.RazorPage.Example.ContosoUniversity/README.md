@@ -16,7 +16,12 @@ All explanation are inside inline comment
 
 Following in Doc: [docs.microsoft.com - Razor Pages with Entity Framework Core in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-5.0&tabs=visual-studio-code)
 
-1. [Tutorial 1 of 8 - Get Started](https://github.com/SukrepCode/DotNetCore.Templates/tree/b007ab26699f268b468e7a9cafd662cfcf626819/Mild.EF.RazorPage.Example.ContosoUniversity)
+1. [Tutorial 1 of 8](https://github.com/SukrepCode/DotNetCore.Templates/tree/b007ab26699f268b468e7a9cafd662cfcf626819/Mild.EF.RazorPage.Example.ContosoUniversity) - Get Started
+    - [Performance considerations](https://github.com/SukrepCode/DotNetCore.Templates/tree/3da281ae48501f50f01d642c663d3a38bbc2ee04/Mild.EF.RazorPage.Example.ContosoUniversity) - We can set the maximum rows to display in MVC
+    
+
+
+
 
 # Run
 

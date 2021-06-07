@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Mild.EF.RazorPage.Example.ContosoUniversity.Data;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Mild.EF.RazorPage.Example.ContosoUniversity
 {
@@ -26,25 +25,6 @@ namespace Mild.EF.RazorPage.Example.ContosoUniversity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            // Performance considerations 
-            // In general, a web page shouldn't be loading an arbitrary number of rows. 
-            // A query should use paging or a limiting approach. For example, the preceding 
-            // query could use Take to limit the rows returned:
-            // 
-            // Enumerating a large table in a view could return a partially constructed HTTP 200 response if a database exception occurs part way through the enumeration.
-            // MaxModelBindingCollectionSize defaults to 1024.
-            // 
-            // In this case: we set the maximum rows for display is 100
-            // 
-            // warn: Microsoft.EntityFrameworkCore.Query[10102]
-            // The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. 
-            // More info: https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-5.0&tabs=visual-studio-code#performance-considerations
-            var myMaxModelBindingCollectionSize = Convert.ToInt32(
-                Configuration["MyMaxModelBindingCollectionSize"] ?? "100");
-            services.Configure<MvcOptions>(options =>
-                options.MaxModelBindingCollectionSize = myMaxModelBindingCollectionSize);
-
 
             services.AddRazorPages();
 
