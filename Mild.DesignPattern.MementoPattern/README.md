@@ -2,6 +2,8 @@
 
 Demonstrate Memento Pattern: It able to undo and redo a state of objects.
 
+<!-- more -->
+
 ## Run
 
 ```
