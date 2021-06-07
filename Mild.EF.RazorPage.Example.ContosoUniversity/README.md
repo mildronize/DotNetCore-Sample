@@ -22,6 +22,10 @@ dotnet run
 
 Open browser: https://localhost:5001/
 
+```
+dotnet ef database update
+```
+
 # Command
 
 ```
