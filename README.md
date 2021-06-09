@@ -1,11 +1,13 @@
 # .NET Core 5 Templates
 
 - [Mild.DesignPattern.MementoPattern](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.DesignPattern.MementoPattern)
+- [Mild.EF.RazorPage.Example.ContosoUniversity](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.EF.RazorPage.Example.ContosoUniversity)
 - [Mild.MVC.Authentication.Minimal](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.MVC.Authentication.Minimal)
 - [Mild.MVC.Authentication.Openiddict.OAuth2.AuthorizationCodeRefreshToken](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.MVC.Authentication.Openiddict.OAuth2.AuthorizationCodeRefreshToken)
 - [Mild.MVC.Authentication.Openiddict.OAuth2.ClientCredentials](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.MVC.Authentication.Openiddict.OAuth2.ClientCredentials)
 - [Mild.MVC.Authentication.Openiddict.React](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.MVC.Authentication.Openiddict.React)
 - [Mild.MVC.Minimal](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.MVC.Minimal)
+- [Mild.React.Starter](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/Mild.React.Starter)
 
 
 ---
@@ -16,6 +18,23 @@
 # Mild.DesignPattern.MementoPattern
 
 Demonstrate Memento Pattern: It able to undo and redo a state of objects.
+
+
+
+---
+
+
+
+`Mild.EF.RazorPage.Example.ContosoUniversity`
+# Mild.EF.RazorPage.Example.ContosoUniversity
+
+Following in Doc: [docs.microsoft.com - Razor Pages with Entity Framework Core in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-5.0&tabs=visual-studio-code)
+
+All explanation are inside inline comment
+
+# Features
+- Razor Page
+- SQLite
 
 
 
@@ -100,6 +119,25 @@ Enable the the [Client Credentials Flow](https://oauth.net/2/grant-types/client-
 # Mild.MVC.Minimal
 
 Just a basic MVC 
+
+
+
+---
+
+
+
+`Mild.React.Starter`
+# Mild.React.Starter
+
+Minimal setup .NET Core 5 with React TypeScript.
+Using `reactredux` template (`dotnet new reactredux`), removed Redux. 
+Refactor from a class component to functional component.
+
+# Features
+- useSPA
+- TypeScript
+- No Redux
+- Functional components
 
 
 
