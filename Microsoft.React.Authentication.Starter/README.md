@@ -5,7 +5,6 @@ Using `react` template (`dotnet new reactredux -au Individual`)
 
 # Features
 - useSPA
-- Redux
 - Class components
 - Openid Connect with Identity Server
 
