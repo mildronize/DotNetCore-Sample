@@ -18,3 +18,11 @@ dotnet run
 ```
 
 Open browser: https://localhost:5001/
+
+# Use this project
+
+```sh
+git clone https://github.com/SukreepCode/DotNetCore.Templates.git && cd DotNetCore.Templates && git sparse-checkout set Mild.React.Starter
+```
+
+Then replace `Mild.React.Starter` to your project name
