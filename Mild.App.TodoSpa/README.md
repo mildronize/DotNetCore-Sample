@@ -1,14 +1,11 @@
 # Mild.App.TodoSpa
 
-Minimal setup .NET Core 5 with React TypeScript.
-Using `reactredux` template (`dotnet new reactredux`), removed Redux. 
-Refactor from a class component to functional component.
+Todo App
 
 # Features
 - useSPA
 - TypeScript
-- No Redux
-- Functional components
+
 
 <!-- more -->
 # Run
@@ -19,6 +16,12 @@ dotnet run
 
 Open browser: https://localhost:5001/
 
+```bash 
+docker-compose up
+# To remove a container with its volumes.
+docker-compose down --volumes
+```
+
 # Use this project
 
 ```sh
@@ -26,3 +29,11 @@ git clone https://github.com/SukreepCode/DotNetCore.Templates.git && cd DotNetCo
 ```
 
 Then replace `Mild.App.TodoSpa` to your project name
+
+# Todo
+
+- [ ] Testing
+- [ ] Docker
+
+# Ref
+- Docker setup with postgres: https://www.dotnetthailand.com/storage/postgres/docker-compose-for-postgres
