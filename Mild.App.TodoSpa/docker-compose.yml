@@ -1,7 +1,7 @@
 # docker-compose.yml
 version: "3.8" # https://docs.docker.com/compose/compose-file/compose-file-v3/
 # .NET connection string value:
-#  Host=localhost;Port=5432;Database=my-db;Username=postgres;Password=12345Abc$
+#  Host=localhost;Port=5432;Database=todo-app;Username=postgres;Password=12345Abc$
 services:
   postgres:
     # https://hub.docker.com/_/postgres
@@ -9,7 +9,7 @@ services:
     restart: always
     container_name: postgres-db
     environment:
-      POSTGRES_DB: my-db
+      POSTGRES_DB: todo-app
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345Abc$$ # escape $ with $$
     ports:

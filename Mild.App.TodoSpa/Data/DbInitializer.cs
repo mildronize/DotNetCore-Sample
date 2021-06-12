@@ -14,7 +14,7 @@ namespace Mild.App.TodoSpa.Data
                 return;   // DB has been seeded
             }
         
-            var adminUser = new Account{FirstName="Thada",LastName="Wangthammang",Email="mildronize@gmail.com"};
+            var adminUser = new Account{FirstName="Thada",LastName="Wangthammang",Email="mildronize@gmail.com", PasswordHash="123456"};
             context.Accounts.Add(adminUser);
 
             context.SaveChanges();
