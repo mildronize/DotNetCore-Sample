@@ -16,7 +16,7 @@ services:
       - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
-    #   - ./init:/docker-entrypoint-initdb.d
+      # - ./init:/docker-entrypoint-initdb.d
     networks:
       - compose_network
 # Create name volumes managed by Docker to not lose data when remove a container
