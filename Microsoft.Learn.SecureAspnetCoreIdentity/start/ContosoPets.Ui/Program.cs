@@ -19,21 +19,21 @@ namespace ContosoPets.Ui
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.ConfigureAppConfiguration(config => ConfigureKeyVault(config));
+                    // webBuilder.ConfigureAppConfiguration(config => ConfigureKeyVault(config));
                     webBuilder.UseStartup<Startup>();
                 });
 
-        private static void ConfigureKeyVault(IConfigurationBuilder config)
-        {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            var keyVaultClient = new KeyVaultClient(
-                new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+        // private static void ConfigureKeyVault(IConfigurationBuilder config)
+        // {
+        //     var azureServiceTokenProvider = new AzureServiceTokenProvider();
+        //     var keyVaultClient = new KeyVaultClient(
+        //         new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 
-            string keyVaultEndpoint = Environment.GetEnvironmentVariable(
-                "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT");
+        //     string keyVaultEndpoint = Environment.GetEnvironmentVariable(
+        //         "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT");
 
-            config.AddAzureKeyVault(
-                keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-        }
+        //     config.AddAzureKeyVault(
+        //         keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+        // }
     }
 }

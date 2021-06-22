@@ -59,8 +59,15 @@ Set up development environment
 Run the following command in the command shell. The command reflects your data store choice in the toggle above. Be patient, as setup can take a few minutes to complete. Continue reading while the script runs.
 
 ```sh
-# init script like git clone
+git clone https://github.com/mildronize/DotNetCore-Sample  \ 
+    && cd Microsoft.Learn.SecureAspnetCoreIdentity
+cd start/ContosoPets.Ui
+dotnet watch run
 ```
+
+Software Requirement:
+- Docker
+- DBeaver
 
 The preceding command retrieves and runs a setup script from a GitHub repository. The script completes the following steps:
 
@@ -135,7 +142,7 @@ Azure Key Vault is used to securely store and retrieve sensitive data. The start
 Run the following command:
 
 ```bash
-db -c "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'"
+SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'
 ```
 
 The script created a `db` alias. The alias corresponds to `psql` with `--host` (server hostname), `--port` (port number), `--username`, and `--dbname` (database name) options. psql obtains the password from an environment variable named `PGPASSWORD`. **PSQL** is a cross-platform command-line tool for administering and querying PostgreSQL databases. The preceding command retrieves a list of non-system tables from the PostgreSQL database that was created earlier.

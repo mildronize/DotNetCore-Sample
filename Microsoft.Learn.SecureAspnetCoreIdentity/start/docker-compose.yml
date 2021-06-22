@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: "3.8" # https://docs.docker.com/compose/compose-file/compose-file-v3/
+# .NET connection string value:
+#  Host=localhost;Port=5432;Database=app-db;Username=postgres;Password=123456$
+services:
+  postgres:
+    # https://hub.docker.com/_/postgres
+    image: postgres:13
+    restart: always
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: app-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456$$ # escape $ with $$
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # - ./init:/docker-entrypoint-initdb.d
+    networks:
+      - compose_network
+# Create name volumes managed by Docker to not lose data when remove a container
+# https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes
+volumes:
+  pgdata:
+networks:
+  compose_network:
