@@ -21,17 +21,21 @@ data += "\n";
 for (let i in directories){
   if(directories[i] == "node_modules") continue;
   if(directories[i] == "scripts") continue;
-  data += "- ["+directories[i]+"](https://github.com/SukrepCode/DotNetCore.Templates/tree/main/"+directories[i]+")\n";
+  data += "- ["+directories[i]+"]("+directories[i]+")\n";
 }
 data += readFile("scripts/SPLIT.md");
-regexImageMarkdown = /\!\[.*\]\((.*)\)/;
+regexImageMarkdown = /\!\[.*\]\((.*)\)/ig;
 for (let i in directories){
   if(directories[i] == "node_modules") continue;
   if(directories[i] == "scripts") continue;
 
-  data += "\n\n`"+directories[i]+"`\n";
+  data += "\n\n\n";
   tmp = readFile(`${directories[i]}/README.md`);
-  tmp = tmp.replace(regexImageMarkdown, `![${directories[i]} preview](${directories[i]}/$1)`);
+  tmp = tmp.replaceAll(regexImageMarkdown, `![${directories[i]} preview](${directories[i]}/$1)`);
+
+  tmp = tmp.replaceAll(/\#\ /ig, `## `);
+  tmp = tmp.replaceAll(/---/ig, ``);
+
   tmps = tmp.split("<!-- more -->");
   data += tmps[0];
   data += readFile("scripts/SPLIT.md");

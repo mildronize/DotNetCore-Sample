@@ -4,6 +4,12 @@ This project will be followed the learn modules: [Secure an ASP.NET Core web app
 
 This project was created from the [Code](https://github.com/MicrosoftDocs/mslearn-aspnet-core/tree/master/modules/secure-aspnet-core-identity)
 
+## Project Structure 
+```
+├───start # Starter template
+└───final # Final code from this tutorial 
+```
+
 Note: The original article was designed in Azure Cloud Shell. Some how I can't use it one the website. So, I modify the article for local development.
 
 The original article provides PosgreSQL & SQL Server, this article will apply docker and PosgreSQL for local development.
@@ -33,6 +39,8 @@ In this module, you will:
 - Customize multi-factor login capabilities.
 - Implement policy-based authorization using claims.
 - Customize and extend the underlying Identity data store.
+
+<!-- more -->
 
 ## Prerequisites
 - Experience writing C# at the beginner level
@@ -1202,7 +1210,7 @@ To avoid distracting from the focus on Identity, the boilerplate to support QR c
     - **Set up authenticator app**
     - **Reset authenticator app**
 
-# Unite 6: Use claims with policy-based authorization
+# Unit 6: Use claims with policy-based authorization
 
 In this unit, you'll create a new user with administrative privileges. A demonstration of creating and storing user claims is provided. An authorization policy is also defined to determine whether an authenticated user has elevated privileges in the UI.
 
