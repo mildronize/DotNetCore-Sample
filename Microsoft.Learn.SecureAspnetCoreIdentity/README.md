@@ -51,18 +51,18 @@ Familiarity with a time-based one-time password (TOTP) authenticator app, such a
 
 # Unit 2: Set up the environment
 
-In this unit, you'll gain an understanding of Identity architecture. You'll start by running a script to set up the module's Linux development environment. The script downloads a cross-platform starter project and provisions Azure resources to support tasks throughout the module. Identity will be added to the starter project. No prior Linux experience is necessary.
+In this unit, you'll gain an understanding of Identity architecture. You'll start by running a script to set up the module's Linux development environment. ~~The script downloads a cross-platform starter project and provisions Azure resources to support tasks throughout the module. Identity will be added to the starter project.~~
 
-This module focuses on just two of the possible EF Core data stores supported by Identity. Use the toggle above to select your preference.
+This module focuses on just two of the possible EF Core data stores supported by Identity.
 
 Set up development environment
-Run the following command in the command shell. The command reflects your data store choice in the toggle above. Be patient, as setup can take a few minutes to complete. Continue reading while the script runs.
+Run the following command in the command shell.
 
 ```sh
 git clone https://github.com/mildronize/DotNetCore-Sample  \ 
     && cd Microsoft.Learn.SecureAspnetCoreIdentity
-cd start/ContosoPets.Ui
-dotnet watch run
+cd start
+docker-compose up
 ```
 
 Software Requirement:
@@ -73,10 +73,7 @@ The preceding command retrieves and runs a setup script from a GitHub repository
 
 - Clones the ASP.NET Core starter code from a GitHub repository.
 - Builds and deploys an ASP.NET Core web API to supply the web app with data.
-- Provisions a database to store Identity framework entities.
-- Sets environment variables that are required for this module.
-- Displays connection information for the Azure resources.
-- Launches the Cloud Shell Editor to view the starter code.
+- Provisions a database ~~to store Identity framework entities~~.
 
 ## Review ASP.NET Core Identity architecture
 
@@ -114,7 +111,7 @@ Your development team makes the following technical decisions:
 - The database tables supporting Identity should belong to the default schema.
 - Administrators will self-enroll using a single-use token.
 - The app must support logging in with multi-factor authentication using a TOTP authenticator app.
-- The database credentials should be stored in Azure Key Vault.
+- ~~The database credentials should be stored in Azure Key Vault.~~
 
 ## Review starter code
 
@@ -133,23 +130,21 @@ Of particular interest are the following files and directories in *ContosoPets.U
 | *Program.cs*                                | Serves as the app's main entry point and registers the Azure Key Vault configuration provider. |
 | *Startup.cs*                                | Configures services and the app's HTTP request pipeline.     |
 
-**Note:**
+~~**Note:**~~
 
-Azure Key Vault is used to securely store and retrieve sensitive data. The starter code implements it to demonstrate one possible way to secure database credentials. It's unrelated to Identity and therefore out of scope for this module. See the ConfigureKeyVault method in the Program.cs file for the Key Vault registration code.
+~~Azure Key Vault is used to securely store and retrieve sensitive data. The starter code implements it to demonstrate one possible way to secure database credentials. It's unrelated to Identity and therefore out of scope for this module. See the ConfigureKeyVault method in the Program.cs file for the Key Vault registration code.~~
 
 ## Verify database connectivity
 
-Run the following command:
+Open SQL Editor on Dbeaver, Run the following command:
 
 ```bash
 SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'
 ```
 
-The script created a `db` alias. The alias corresponds to `psql` with `--host` (server hostname), `--port` (port number), `--username`, and `--dbname` (database name) options. psql obtains the password from an environment variable named `PGPASSWORD`. **PSQL** is a cross-platform command-line tool for administering and querying PostgreSQL databases. The preceding command retrieves a list of non-system tables from the PostgreSQL database that was created earlier.
+The preceding command retrieves a list of non-system tables from the PostgreSQL database that was created earlier.
 
 As expected, the list is empty because the database only contains system tables.
-
-
 
 ```sh
  tablename 
