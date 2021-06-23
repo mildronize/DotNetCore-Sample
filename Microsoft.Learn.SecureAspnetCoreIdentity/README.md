@@ -79,12 +79,27 @@ The preceding command retrieves and runs a setup script from a GitHub repository
 Open the separated command shell. Run the following command in the command shell.
 
 ```sh
-cd Microsoft.Learn.SecureAspnetCoreIdentity/start/ContosoPets.Ui
+cd Microsoft.Learn.SecureAspnetCoreIdentity/start
 dotnet build
 ```
 
 The build succeeds with no warnings. If the build fails, check the output for troubleshooting information.
 
+Testing web and API, it should be work properly. Run the below commend shell with seperate console.
+
+```sh
+dotnet run --project ContosoPets.Api
+```
+
+You can open API server via `https://localhost:5005/Products`
+
+```sh
+dotnet run --project ContosoPets.Ui
+```
+
+You can open web application  via `https://localhost:5001/Products`. You should see the result follow below:
+
+![](docs/02-first-run-product.png)
 
 ## Review ASP.NET Core Identity architecture
 
@@ -330,7 +345,6 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
 
 3. In the `Configure` method of *Startup.cs*, replace the `// Add the app.UseAuthentication code` comment with the following code. Save your changes.
 
-   
 
    ```csharp
    app.UseAuthentication();
@@ -465,12 +479,13 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
 
 3. Run the dotnet run with watch function. Open the browser with `https://localhost:5001`
 
-
    ```sh
-   donet watch run
+   dotnet watch run --project ContosoPets.Ui
    ```
 
-4. Click the **Register** link in the app's header. Complete the form to create a new account.
+   Note: Please make sure you already run the API via command `dotnet run --project ContosoPets.Api`
+
+1. Click the **Register** link in the app's header. Complete the form to create a new account.
 
    After successful registration:
 
@@ -478,7 +493,7 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
    - The app's header displays **Hello [Email address]!** and a **Logout** link.
    - A cookie named *.AspNetCore.Identity.Application* is created. Identity preserves user sessions with cookie-based authentication.
 
-5. Click the **Logout** link in the app's header.
+2. Click the **Logout** link in the app's header.
 
    After successfully logging out, the *.AspNetCore.Identity.Application* cookie is deleted to terminate the user session.
 
