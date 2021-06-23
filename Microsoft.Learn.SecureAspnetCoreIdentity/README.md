@@ -485,7 +485,7 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
 
    Note: Please make sure you already run the API via command `dotnet run --project ContosoPets.Api`
 
-1. Click the **Register** link in the app's header. Complete the form to create a new account.
+4. Click the **Register** link in the app's header. Complete the form to create a new account.
 
    After successful registration:
 
@@ -493,7 +493,10 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
    - The app's header displays **Hello [Email address]!** and a **Logout** link.
    - A cookie named *.AspNetCore.Identity.Application* is created. Identity preserves user sessions with cookie-based authentication.
 
-2. Click the **Logout** link in the app's header.
+
+   ![](docs/03-after-login-manage-account.png)
+
+5. Click the **Logout** link in the app's header.
 
    After successfully logging out, the *.AspNetCore.Identity.Application* cookie is deleted to terminate the user session.
 
