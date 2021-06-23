@@ -55,25 +55,36 @@ In this unit, you'll gain an understanding of Identity architecture. You'll star
 
 This module focuses on just two of the possible EF Core data stores supported by Identity.
 
+
+Software Requirement:
+- Docker
+- DBeaver
+
+
 Set up development environment
 Run the following command in the command shell.
 
 ```sh
 git clone https://github.com/mildronize/DotNetCore-Sample  \ 
     && cd Microsoft.Learn.SecureAspnetCoreIdentity
-cd start
 docker-compose up
 ```
-
-Software Requirement:
-- Docker
-- DBeaver
 
 The preceding command retrieves and runs a setup script from a GitHub repository. The script completes the following steps:
 
 - Clones the ASP.NET Core starter code from a GitHub repository.
 - Builds and deploys an ASP.NET Core web API to supply the web app with data.
 - Provisions a database ~~to store Identity framework entities~~.
+
+Open the separated command shell. Run the following command in the command shell.
+
+```sh
+cd Microsoft.Learn.SecureAspnetCoreIdentity/start/ContosoPets.Ui
+dotnet build
+```
+
+The build succeeds with no warnings. If the build fails, check the output for troubleshooting information.
+
 
 ## Review ASP.NET Core Identity architecture
 
@@ -162,7 +173,7 @@ Open SQL Editor on DBeaver,
 
 Run the following command:
 
-```bash
+```SQL
 SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'
 ```
 
@@ -409,8 +420,8 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
 
    
 
-   ```bash
-   db -c "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema' ORDER BY tablename"
+   ```SQL
+   SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema' ORDER BY tablename
    ```
 
    The output confirms the creation of the tables:
