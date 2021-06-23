@@ -452,27 +452,14 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
 
    The `--no-restore` option is included because no NuGet packages were added since the last build. The build process bypasses restoration of NuGet packages and succeeds with no warnings. If the build fails, check the output for troubleshooting information.
 
-3. Deploy the app to Azure App Service by running the following command:
+3. Run the dotnet run with watch function. Open the browser with `https://localhost:5001`
 
-   Azure CLICopy
 
-   ```azurecli
-   az webapp up
+   ```sh
+   donet watch run
    ```
 
-    Note
-
-   The *.azure/config* file in the project root contains the configuration values used by `az webapp up`.
-
-4. Run the following command to view the app's URL. Navigate to that URL in your browser.
-
-   
-
-   ```bash
-   echo $webAppUrl
-   ```
-
-5. Click the **Register** link in the app's header. Complete the form to create a new account.
+4. Click the **Register** link in the app's header. Complete the form to create a new account.
 
    After successful registration:
 
@@ -480,7 +467,7 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
    - The app's header displays **Hello [Email address]!** and a **Logout** link.
    - A cookie named *.AspNetCore.Identity.Application* is created. Identity preserves user sessions with cookie-based authentication.
 
-6. Click the **Logout** link in the app's header.
+5. Click the **Logout** link in the app's header.
 
    After successfully logging out, the *.AspNetCore.Identity.Application* cookie is deleted to terminate the user session.
 
