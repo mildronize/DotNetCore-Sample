@@ -119,16 +119,16 @@ The app consists of a single ASP.NET Core Razor Pages project named *ContosoPets
 
 Of particular interest are the following files and directories in *ContosoPets.Ui*:
 
-| Name                                        | Description                                                  |
-| :------------------------------------------ | :----------------------------------------------------------- |
-| *Controllers/AdminTokenController.cs*       | Exposes `AdminRegistrationTokenService` as an HTTP endpoint. Unused until Unit 6. |
-| *Pages/Products/*                           | Contains web UI for CRUD operations.                         |
-| *Services/AdminRegistrationTokenService.cs* | Generates tokens allowing administrators to self-register. Unused until Unit 6. |
-| *Services/ProductService.cs*                | Manages all interactions with the external ASP.NET Core web API. |
+| Name                                        | Description                                                                                       |
+| :------------------------------------------ | :------------------------------------------------------------------------------------------------ |
+| *Controllers/AdminTokenController.cs*       | Exposes `AdminRegistrationTokenService` as an HTTP endpoint. Unused until Unit 6.                 |
+| *Pages/Products/*                           | Contains web UI for CRUD operations.                                                              |
+| *Services/AdminRegistrationTokenService.cs* | Generates tokens allowing administrators to self-register. Unused until Unit 6.                   |
+| *Services/ProductService.cs*                | Manages all interactions with the external ASP.NET Core web API.                                  |
 | *Services/QRCodeService.cs*                 | Manages the creation of QR codes for supporting multi-factor authentication. Unused until Unit 5. |
-| *wwwroot/js/product.js*                     | Enables deletion of a product from *Pages/Products/Index.cshtml* without a server-side postback. |
-| *Program.cs*                                | Serves as the app's main entry point and registers the Azure Key Vault configuration provider. |
-| *Startup.cs*                                | Configures services and the app's HTTP request pipeline.     |
+| *wwwroot/js/product.js*                     | Enables deletion of a product from *Pages/Products/Index.cshtml* without a server-side postback.  |
+| *Program.cs*                                | Serves as the app's main entry point and registers the Azure Key Vault configuration provider.    |
+| *Startup.cs*                                | Configures services and the app's HTTP request pipeline.                                          |
 
 ~~**Note:**~~
 
@@ -136,7 +136,31 @@ Of particular interest are the following files and directories in *ContosoPets.U
 
 ## Verify database connectivity
 
-Open SQL Editor on Dbeaver, Run the following command:
+Create DBeaver Conntection to Postgres.
+
+![](docs/01-create-db-connection.png)
+
+Select and Download Postgres Driver.
+
+![](docs/02-select-postgres.png)
+
+Fill the database connection info.
+
+```
+Host=localhost;
+Port=5432;
+Database=app-db;
+Username=postgres;
+Password=123456$
+```
+
+![](docs/03-fill-connection-string.png)
+
+Open SQL Editor on DBeaver,
+
+![](docs/04-open-sql-editor.png)
+
+Run the following command:
 
 ```bash
 SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'
@@ -151,6 +175,8 @@ As expected, the list is empty because the database only contains system tables.
 -----------
 (0 rows)
 ```
+
+![](docs/05-execute-sql-command.png)
 
 # Unit 3: Configure Identity support
 
@@ -173,7 +199,7 @@ In this unit, Identity will be added to the existing ASP.NET Core Razor Pages pr
    
 
    ```sh
-   dotnet tool install dotnet-aspnet-codegenerator --version 3.1.2
+   dotnet tool install dotnet-aspnet-codegenerator --version 3.1.5
    ```
 
    The following output appears:
@@ -182,7 +208,7 @@ In this unit, Identity will be added to the existing ASP.NET Core Razor Pages pr
 
    ```sh
    You can invoke the tool from this directory using the following commands: 'dotnet tool run dotnet-aspnet-codegenerator' or 'dotnet dotnet-aspnet-codegenerator'.
-   Tool 'dotnet-aspnet-codegenerator' (version '3.1.2') was successfully installed. Entry is added to the manifest file /home/<USER>/aspnet-learn/src/ContosoPets.Ui/.config/dotnet-tools.json.
+   Tool 'dotnet-aspnet-codegenerator' (version '3.1.5') was successfully installed. Entry is added to the manifest file /home/<USER>/aspnet-learn/src/ContosoPets.Ui/.config/dotnet-tools.json.
    ```
 
    The scaffolder is a .NET Core tool that will:
@@ -196,12 +222,13 @@ In this unit, Identity will be added to the existing ASP.NET Core Razor Pages pr
    
 
    ```sh
-   dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.1.2 && \
-       dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 3.1.3 && \
-       dotnet add package Microsoft.AspNetCore.Identity.UI --version 3.1.3 && \
-       dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.3 && \
-       dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.3
+    dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.1.5
+    dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 3.1.3
+    dotnet add package Microsoft.AspNetCore.Identity.UI --version 3.1.3
+    dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.1.3
+    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.1.3
    ```
+
 
    These packages install code generation templates and dependencies that are used by the scaffolder.
 
@@ -213,13 +240,9 @@ In this unit, Identity will be added to the existing ASP.NET Core Razor Pages pr
    - When in Visual Studio, right-click the project in **Solution Explorer** and select **Add** > **New Scaffolded Item**.
 
 3. Use the scaffolder to add the default Identity components to the project. Run the following command from the project root:
-
-   
-
+4. 
    ```sh
-   dotnet aspnet-codegenerator identity \
-       --useDefaultUI \
-       --dbContext ContosoPetsAuth
+   dotnet aspnet-codegenerator identity --useDefaultUI --dbContext ContosoPetsAuth
    ```
 
    In the preceding command:
@@ -228,10 +251,8 @@ In this unit, Identity will be added to the existing ASP.NET Core Razor Pages pr
    - The `--useDefaultUI` option indicates that an RCL containing the default UI elements will be used. Bootstrap will be used to style the components.
    - The `--dbContext` option to indicate the name of an EF Core database context class to generate.
 
-4. Update file explorer by clicking the editor's refresh icon.
-
-   ![Cloud Shell refresh icon](https://docs.microsoft.com/en-us/learn/aspnetcore/media/cloud-shell-refresh-files.png)
-
+5. You will see *Areas* directory.
+   
    An *Areas* directory structure appears in the project root:
 
    - Areas
@@ -267,33 +288,18 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
    public void Configure(IWebHostBuilder builder)
    {
        builder.ConfigureServices((context, services) => {
-           var connBuilder = new NpgsqlConnectionStringBuilder(
-               context.Configuration.GetConnectionString("ContosoPetsAuthConnection"))
-           {
-               Username = context.Configuration["DbUsername"],
-               Password = context.Configuration["DbPassword"]
-           };
-   
-           services.AddDbContext<ContosoPetsAuth>(options =>
-               options.UseNpgsql(connBuilder.ConnectionString));
-   
-           services.AddDefaultIdentity<IdentityUser>()
-               .AddDefaultUI()
-               .AddEntityFrameworkStores<ContosoPetsAuth>();
+            // Note: Using Azure Key Vault for production, see in the original article.
+            services.AddDbContext<ContosoPetsAuth>(options =>
+                options.UseNpgsql(context.Configuration.GetConnectionString("ContosoPetsAuthConnection")));
+
+            services.AddDefaultIdentity<IdentityUser>()
+                .AddDefaultUI()
+                .AddEntityFrameworkStores<ContosoPetsAuth>();
        });
    }
    ```
 
    In the preceding code:
-
-   - The Azure Key Vault configuration provider is implicitly used to retrieve the database username and password:
-
-     
-
-     ```csharp
-     Username = context.Configuration["DbUsername"],
-     Password = context.Configuration["DbPassword"]
-     ```
 
    - The database username and password are injected into the connection string stored in *appsettings.json*.
 
@@ -321,29 +327,16 @@ This NuGet package provides EF Core with knowledge of how to interact with a Pos
 
    The preceding code enables authentication capabilities. More specifically, an instance of the ASP.NET Core authentication middleware is added to the app's HTTP request-handling pipeline.
 
-4. Run the following command to print the database connection string to the console. Copy the connection string to your clipboard.
-
-   
-
-   ```bash
-   echo $dbConnectionString
-   ```
-
-5. In *appsettings.json*, replace the connection string for `ContosoPetsAuthConnection` with the connection string from the previous step. Save your changes.
-
-   The `ConnectionStrings` section should look similar to the following JSON:
-
-   JSONCopy
+4. In *appsettings.json*, replace the connection string for `ContosoPetsAuthConnection` with the connection string from the previous step. Save your changes.
 
    ```json
    "ConnectionStrings": {
-       "ContosoPetsAuthConnection": "Server={HOST NAME}.postgres.database.azure.com;Database=contosopets;Port=5432;Ssl Mode=Require;"
-   }
+     "ContosoPetsAuthConnection": "Server=localhost;Port=5432;Database=app-db;User Id=postgres;Password=123456$;"
+    }
    ```
 
-6. Run the following command to build the app:
+5. Run the following command to build the app:
 
-   
 
    ```sh
    dotnet build

@@ -65,6 +65,7 @@ namespace ContosoPets.Ui
             app.UseRouting();
 
             // Add the app.UseAuthentication code
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
