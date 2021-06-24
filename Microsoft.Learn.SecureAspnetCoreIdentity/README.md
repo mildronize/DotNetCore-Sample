@@ -523,6 +523,8 @@ UI changes are also required to collect the additional user profile information.
        --force
    ```
 
+   > Note: The `final` dir will end this step.
+
    In the preceding command:
 
    - The `--dbContext` option provides the tool with knowledge of the existing `DbContext`-derived class named `ContosoPetsAuth`.
