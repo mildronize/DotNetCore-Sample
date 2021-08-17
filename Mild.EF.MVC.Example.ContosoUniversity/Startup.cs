@@ -1,3 +1,5 @@
+using Mild.EF.MVC.Example.ContosoUniversity.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +25,13 @@ namespace Mild.EF.MVC.Example.ContosoUniversity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SchoolContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            
+            // middleware for Entity Framework Core error pages. This middleware helps to detect and diagnose 
+            // errors with Entity Framework Core migrations.
+            services.AddDatabaseDeveloperPageExceptionFilter();
+            
             services.AddControllersWithViews();
         }
 
